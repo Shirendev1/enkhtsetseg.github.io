@@ -1,21 +1,82 @@
+842"}
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Clean Mongolia</title>
-<link rel="stylesheet" href="style.css">
 
 <style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+background:#0f172a;
+}
+
+/* Navigation /
+
+nav{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+background:rgba(0,0,0,0.6);
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+font-size:16px;
+}
+
+/ Hero /
+
+.hero{
+height:350px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+background-image:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:50px;
+margin:0;
+}
+
+.hero p{
+font-size:20px;
+opacity:0.9;
+}
+
+/ Content /
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:50px 20px;
+}
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:25px;
-margin-top:30px;
+gap:30px;
 }
 
-.recycle{
-padding:25px;
+.card{
+padding:30px;
 border-radius:12px;
 text-align:center;
 font-weight:bold;
@@ -25,6 +86,19 @@ font-weight:bold;
 .plastic{background:#16a34a;}
 .glass{background:#06b6d4;}
 .organic{background:#f59e0b;}
+
+.card:hover{
+transform:scale(1.05);
+transition:0.3s;
+}
+
+/ Footer */
+
+footer{
+text-align:center;
+padding:40px;
+background:#020617;
+}
 
 </style>
 
@@ -41,31 +115,31 @@ font-weight:bold;
 
 <section class="hero">
 <h1>Clean Mongolia</h1>
-<p>Waste sorting and recycling system</p>
+<p>Waste Sorting & Recycling System</p>
 </section>
 
 <div class="container">
 
-<h2>Waste Sorting System</h2>
+<h2 style="text-align:center;">Waste Sorting System</h2>
 
 <div class="grid">
 
-<div class="recycle paper">
+<div class="card paper">
 📄 Paper<br>
 Recycling paper and cardboard
 </div>
 
-<div class="recycle plastic">
+<div class="card plastic">
 ♻ Plastic<br>
 Plastic bottles and packaging
 </div>
 
-<div class="recycle glass">
+<div class="card glass">
 🍾 Glass<br>
-Glass bottles and containers
+Glass containers
 </div>
 
-<div class="recycle organic">
+<div class="card organic">
 🌱 Organic<br>
 Food waste and compost
 </div>
@@ -79,5 +153,7 @@ Future Thinking Project
 </footer>
 
 </body>
-</html>
+</
+photo-1500530855697-b586d89ba3ee
+
 
