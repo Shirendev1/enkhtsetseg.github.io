@@ -1,77 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Future Energy</title>
 
 <style>
-
 body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0f172a;
-color:white;
+    font-family: Arial, sans-serif;
+    margin:0;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
 }
 
-/* Navigation /
-
 nav{
-background:#020617;
-padding:15px 40px;
-display:flex;
-justify-content:center;
-gap:40px;
+    background:#111;
+    padding:15px;
+    text-align:center;
 }
 
 nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
+    color:white;
+    margin:0 15px;
+    text-decoration:none;
+    font-weight:bold;
 }
 
-nav a:hover{
-color:#38bdf8;
+header{
+    text-align:center;
+    padding:60px 20px;
 }
 
-/ Header /
-
-.hero{
-text-align:center;
-padding:100px 20px;
-background:linear-gradient(135deg,#f59e0b,#ef4444);
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
 }
 
-.hero h1{
-font-size:45px;
-margin:0;
+h2{
+    margin-top:40px;
 }
 
-/ Content /
-
-.container{
-max-width:900px;
-margin:auto;
-padding:50px 20px;
+.energy-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    margin-top:30px;
 }
 
 .card{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-margin-bottom:20px;
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
 }
-
-/ Footer */
 
 footer{
-text-align:center;
-padding:40px;
-background:#020617;
-color:#94a3b8;
+    text-align:center;
+    padding:30px;
+    opacity:0.7;
 }
-
 </style>
-
 </head>
 
 <body>
@@ -83,43 +72,75 @@ color:#94a3b8;
 <a href="energy.html">Future Energy</a>
 </nav>
 
-<section class="hero">
+<header>
 <h1>Future Energy</h1>
-<p>Innovative energy solutions for a sustainable world</p>
+<p>Innovative energy solutions for a sustainable future</p>
+</header>
+
+<section>
+
+<h2>Renewable Energy Potential</h2>
+<p>
+Mongolia has one of the world's greatest potentials for renewable energy.
+With vast open landscapes, strong wind corridors, and more than
+300 sunny days each year, the country is well positioned to develop
+large-scale solar and wind power systems.
+</p>
+
+<h2>Energy Innovation</h2>
+<p>
+Future energy systems rely on innovation and advanced technology.
+Smart grids, energy storage systems, digital monitoring,
+and efficient infrastructure help renewable energy become stable
+and reliable.
+</p>
+
+<h2>Global Energy Model</h2>
+<p>
+By investing in renewable energy, technological innovation,
+and international cooperation, Mongolia has the potential
+to become a global model for sustainable energy development.
+</p>
+
+<h2>Key Energy Areas</h2>
+
+<div class="energy-grid">
+
+<div class="card">
+<h3>☀️ Solar Energy</h3>
+<p>Mongolia's high solar radiation and many sunny days make solar power a major opportunity.</p>
+</div>
+
+<div class="card">
+<h3>🌬️ Wind Energy</h3>
+<p>Strong wind corridors across the country allow development of large wind farms.</p>
+</div>
+
+<div class="card">
+<h3>🔋 Energy Storage</h3>
+<p>Storage systems allow renewable energy to be stored and used when demand increases.</p>
+</div>
+
+<div class="card">
+<h3>⚡ Smart Grids</h3>
+<p>Digital grid systems improve electricity distribution and integrate renewable energy.</p>
+</div>
+
+<div class="card">
+<h3>🟢 Green Hydrogen</h3>
+<p>Hydrogen produced from renewable energy could become a clean fuel for the future.</p>
+</div>
+
+</div>
+
 </section>
 
-<div class="container">
-
-<div class="card">
-<h3>Renewable Energy</h3>
-<p>
-Mongolia has strong potential for solar and wind power,
-creating opportunities for clean and sustainable energy systems.
-</p>
-</div>
-
-<div class="card">
-<h3>Energy Innovation</h3>
-<p>
-Future energy solutions combine advanced technology,
-smart grids, and efficient storage systems.
-</p>
-</div>
-
-<div class="card">
-<h3>Global Energy Model</h3>
-<p>
-By investing in renewable energy and innovation,
-Mongolia could become a model for sustainable energy development.
-</p>
-</div>
-
-</div>
-
 <footer>
-Future Thinking Project<br>
-Mongolia as a Global Model
+Future Thinking Project – Sustainable Ideas for a Better World
 </footer>
 
 </body>
 </html>
+
+
+
