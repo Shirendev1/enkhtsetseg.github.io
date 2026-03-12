@@ -96,8 +96,10 @@ transition:0.3s;
 
 footer{
 text-align:center;
-padding:40px;
+padding:25px;
 background:#020617;
+color:#94a3b8;
+margin-top:40px;
 }
 
 </style>
@@ -113,47 +115,80 @@ background:#020617;
 <a href="energy.html">Future Energy</a>
 </nav>
 
-<section class="hero">
-<h1>Clean Mongolia</h1>
-<p>Waste Sorting & Recycling System</p>
+
+<section class="waste-section">
+
+<h2 class="section-title">Waste Sorting System</h2>
+
+<div class="waste-grid">
+
+<div class="waste-card paper">
+<h3>📄 Paper</h3>
+<p>Recycling paper and cardboard</p>
+</div>
+
+<div class="waste-card plastic">
+<h3>♻️ Plastic</h3>
+<p>Plastic bottles and packaging</p>
+</div>
+
+<div class="waste-card glass">
+<h3>🍾 Glass</h3>
+<p>Glass containers</p>
+</div>
+
+<div class="waste-card organic">
+<h3>🌱 Organic</h3>
+<p>Food waste and compost</p>
+</div>
+
+</div>
+
 </section>
+.waste-section{
+padding:60px 20px;
+background:#0f172a;
+color:white;
+text-align:center;
+}
 
-<div class="container">
+.section-title{
+font-size:32px;
+margin-bottom:40px;
+}
 
-<h2 style="text-align:center;">Waste Sorting System</h2>
+.waste-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+max-width:1000px;
+margin:auto;
+}
 
-<div class="grid">
+.waste-card{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
 
-<div class="card paper">
-📄 Paper<br>
-Recycling paper and cardboard
-</div>
+.waste-card:hover{
+transform:translateY(-5px);
+background:#334155;
+}
 
-<div class="card plastic">
-♻ Plastic<br>
-Plastic bottles and packaging
-</div>
+.waste-card h3{
+margin-bottom:10px;
+font-size:22px;
+}
 
-<div class="card glass">
-🍾 Glass<br>
-Glass containers
-</div>
+.waste-card p{
+opacity:0.8;
+}
 
-<div class="card organic">
-🌱 Organic<br>
-Food waste and compost
-</div>
 
-</div>
 
-</div>
 
-<footer>
-Future Thinking Project
-</footer>
-
-</body>
-</
-photo-1500530855697-b586d89ba3ee
 
 
