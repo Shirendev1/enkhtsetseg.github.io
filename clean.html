@@ -3,72 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Clean Mongolia</title>
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0f172a;
-color:white;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:30px;
 }
 
-/* Navigation /
-
-nav{
-background:#020617;
-padding:15px 40px;
-display:flex;
-justify-content:center;
-gap:40px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
+.recycle{
+padding:25px;
+border-radius:12px;
+text-align:center;
 font-weight:bold;
 }
 
-nav a:hover{
-color:#38bdf8;
-}
-
-/ Header /
-
-.hero{
-text-align:center;
-padding:100px 20px;
-background:linear-gradient(135deg,#22c55e,#16a34a);
-}
-
-.hero h1{
-font-size:45px;
-margin:0;
-}
-
-/ Content /
-
-.container{
-max-width:900px;
-margin:auto;
-padding:50px 20px;
-}
-
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-margin-bottom:20px;
-}
-
-/ Footer */
-
-footer{
-text-align:center;
-padding:40px;
-background:#020617;
-color:#94a3b8;
-}
+.paper{background:#2563eb;}
+.plastic{background:#16a34a;}
+.glass{background:#06b6d4;}
+.organic{background:#f59e0b;}
 
 </style>
 
@@ -85,40 +41,41 @@ color:#94a3b8;
 
 <section class="hero">
 <h1>Clean Mongolia</h1>
-<p>A vision for a cleaner and sustainable Mongolia</p>
+<p>Waste sorting and recycling system</p>
 </section>
 
 <div class="container">
 
-<div class="card">
-<h3>Environmental Responsibility</h3>
-<p>
-Clean Mongolia focuses on protecting nature, reducing pollution,
-and building a society that respects the environment.
-</p>
+<h2>Waste Sorting System</h2>
+
+<div class="grid">
+
+<div class="recycle paper">
+📄 Paper<br>
+Recycling paper and cardboard
 </div>
 
-<div class="card">
-<h3>Sustainable Cities</h3>
-<p>
-Future cities in Mongolia can combine modern technology
-with green infrastructure and clean energy systems.
-</p>
+<div class="recycle plastic">
+♻ Plastic<br>
+Plastic bottles and packaging
 </div>
 
-<div class="card">
-<h3>Community Action</h3>
-<p>
-A clean country begins with responsible communities,
-education, and shared environmental values.
-</p>
+<div class="recycle glass">
+🍾 Glass<br>
+Glass bottles and containers
+</div>
+
+<div class="recycle organic">
+🌱 Organic<br>
+Food waste and compost
+</div>
+
 </div>
 
 </div>
 
 <footer>
-Future Thinking Project<br>
-Mongolia as a Global Model
+Future Thinking Project
 </footer>
 
 </body>
