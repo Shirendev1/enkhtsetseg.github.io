@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Future Thinking</title>
+
 <style>
+
 body{
-font-family: Arial;
-margin:40px;
-background:#f5f7fa;
-color:#333;
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f172a;
+color:white;
 }
 
 header{
 text-align:center;
-margin-bottom:50px;
+padding:100px 20px;
+background:linear-gradient(135deg,#0ea5e9,#6366f1);
 }
 
-h1{
-font-size:40px;
+header h1{
+font-size:50px;
+margin:0;
 }
 
-section{
-margin-bottom:40px;
+header p{
+font-size:20px;
+margin-top:10px;
+opacity:0.9;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
-background:white;
-padding:20px;
-margin:15px 0;
-border-radius:8px;
-box-shadow:0 2px 6px rgba(0,0,0,0.1);
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:#334155;
+}
+
+.card h3{
+margin-top:0;
 }
 
 footer{
-margin-top:60px;
 text-align:center;
-color:gray;
+padding:40px;
+background:#020617;
+color:#94a3b8;
 }
+
 </style>
+
 </head>
 
 <body>
@@ -46,52 +76,55 @@ color:gray;
 <p>Mongolia as a Global Model</p>
 </header>
 
-<section>
+<div class="container">
+
 <h2>Vision</h2>
 
+<div class="grid">
+
 <div class="card">
-Human-centered values
+<h3>Human Values</h3>
+<p>A future centered around humanity, ethics and community.</p>
 </div>
 
 <div class="card">
-Environmental sustainability
+<h3>Nature</h3>
+<p>Protecting ecosystems and creating harmony with nature.</p>
 </div>
 
 <div class="card">
-Advanced digital and energy infrastructure
+<h3>Technology</h3>
+<p>Using digital innovation to support a sustainable future.</p>
 </div>
 
-</section>
+</div>
 
-<section>
-<h2>Ideas</h2>
+<h2 style="margin-top:60px;">Ideas</h2>
+
+<div class="grid">
 
 <div class="card">
-Circular Economy
+<h3>Circular Economy</h3>
+<p>Designing systems where resources are reused and regenerated.</p>
 </div>
 
 <div class="card">
-Clean Mongolia
+<h3>Clean Mongolia</h3>
+<p>Building a model country for environmental responsibility.</p>
 </div>
 
 <div class="card">
-Future Energy
+<h3>Future Energy</h3>
+<p>Innovative energy solutions for a sustainable world.</p>
 </div>
 
-</section>
-
-<section>
-<h2>Thoughts</h2>
-
-<div class="card">
-Exploring how human values, nature and technology can coexist in harmony.
 </div>
 
-</section>
+</div>
 
 <footer>
-<p>Future Thinking Project</p>
-<p>For a world of love and freedom</p>
+Future Thinking Project<br>
+For a world of love and freedom
 </footer>
 
 </body>
