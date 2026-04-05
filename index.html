@@ -1,141 +1,1495 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Future Thinking</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCBI — Mongolia Circular Battery Initiative</title>
+  <meta name="description" content="Building circular systems that protect water, recover battery minerals, and create a clean future across Mongolia and Czech Republic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 
-<style>
+  <style>
+    /* ─── CSS VARIABLES ─── */
+    :root {
+      --navy:       #061830;
+      --deep:       #0a2545;
+      --mid:        #0e3d6e;
+      --blue:       #1565c0;
+      --sky:        #2196f3;
+      --teal:       #00897b;
+      --green:      #1db954;
+      --lime:       #76ff03;
+      --white:      #f4f8fb;
+      --offwhite:   #dce8f0;
+      --muted:      #8baec4;
+      --accent:     #00e5c3;
+      --gold:       #ffd740;
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0f172a;
-color:white;
-}
+      --font-head:  'Syne', sans-serif;
+      --font-body:  'DM Sans', sans-serif;
 
-nav{
-background:#020617;
-padding:15px;
-text-align:center;
-}
+      --ease:       cubic-bezier(.22,.68,0,1.2);
+      --ease-out:   cubic-bezier(.16,1,.3,1);
+    }
 
-nav a{
-color:white;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-}
+    /* ─── RESET ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
 
-.hero{
-text-align:center;
-padding:120px 20px;
-background:linear-gradient(135deg,#0ea5e9,#6366f1);
-}
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 10px; }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
-}
+    /* ─── UTILITIES ─── */
+    .container { width: min(1180px, 92vw); margin-inline: auto; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(0,229,195,.3);
+      padding: .3rem .9rem;
+      border-radius: 100px;
+      margin-bottom: 1.4rem;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--offwhite);
+      opacity: .8;
+      max-width: 580px;
+      margin-top: .9rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .04em;
+      padding: .9rem 2.2rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform .25s var(--ease), box-shadow .25s ease;
+    }
+    .btn:hover { transform: translateY(-3px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(0,137,123,.4);
+    }
+    .btn-primary:hover { box-shadow: 0 14px 40px rgba(0,137,123,.55); }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      box-shadow: 0 0 0 rgba(0,229,195,0);
+    }
+    .btn-outline:hover { box-shadow: 0 0 28px rgba(0,229,195,.25); }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .025;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-.card{
-background:#1e293b;
-padding:25px;
-border-radius:10px;
-}
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.1rem 0;
+      transition: background .4s ease, backdrop-filter .4s ease, padding .4s ease;
+    }
+    nav.scrolled {
+      background: rgba(6,24,48,.88);
+      backdrop-filter: blur(18px);
+      padding: .7rem 0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: .03em;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: .9rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: .88rem;
+      font-weight: 400;
+      color: var(--offwhite);
+      opacity: .75;
+      transition: opacity .2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta {
+      font-family: var(--font-head);
+      font-size: .82rem;
+      font-weight: 700;
+      padding: .5rem 1.4rem;
+      border-radius: 100px;
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      color: #fff !important;
+      opacity: 1 !important;
+      transition: transform .2s var(--ease), box-shadow .2s ease !important;
+    }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,137,123,.4); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: .3s; }
 
-footer{
-text-align:center;
-padding:40px;
-background:#020617;
-}
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 4rem;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(21,101,192,.25) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 70%, rgba(0,137,123,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 80%, rgba(0,229,195,.08) 0%, transparent 60%),
+        linear-gradient(160deg, var(--navy) 0%, #071e3d 50%, #061828 100%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 80%);
+    }
+    /* Animated orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .18;
+      animation: float 10s ease-in-out infinite;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--teal); top: -100px; right: -100px; animation-delay: 0s; }
+    .orb-2 { width: 350px; height: 350px; background: var(--sky); bottom: 0; left: -80px; animation-delay: -4s; }
+    .orb-3 { width: 200px; height: 200px; background: var(--accent); top: 40%; left: 45%; animation-delay: -7s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-40px) scale(1.06); }
+    }
 
-</style>
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp .8s var(--ease-out) .2s forwards;
+    }
+    .hero-eyebrow .dot {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.7); }
+    }
+    .hero-eyebrow span {
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -.03em;
+      opacity: 0;
+      animation: fadeUp .9s var(--ease-out) .4s forwards;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(90deg, var(--accent), var(--sky), var(--teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--offwhite);
+      opacity: 0;
+      max-width: 500px;
+      margin-top: 1.2rem;
+      animation: fadeUp .9s var(--ease-out) .6s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.2rem;
+      opacity: 0;
+      animation: fadeUp .9s var(--ease-out) .8s forwards;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 1.4rem;
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeUp .9s var(--ease-out) 1s forwards;
+    }
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    .hero-badge-icon {
+      font-size: 1.1rem;
+    }
 
+    /* Hero visual side */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1.2s var(--ease-out) .5s forwards;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .globe-wrap {
+      position: relative;
+      width: 380px;
+      height: 380px;
+    }
+    .globe-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .globe-ring:nth-child(1) {
+      width: 380px; height: 380px;
+      border-color: rgba(0,229,195,.15);
+      animation: spinSlow 22s linear infinite;
+    }
+    .globe-ring:nth-child(2) {
+      width: 300px; height: 300px;
+      border-color: rgba(33,150,243,.18);
+      animation: spinSlow 16s linear infinite reverse;
+    }
+    .globe-ring:nth-child(3) {
+      width: 220px; height: 220px;
+      border-color: rgba(0,229,195,.22);
+      animation: spinSlow 12s linear infinite;
+    }
+    .globe-dot {
+      position: absolute;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--accent);
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+    }
+    .globe-ring:nth-child(2) .globe-dot { background: var(--sky); box-shadow: 0 0 14px var(--sky); }
+    .globe-ring:nth-child(3) .globe-dot { background: var(--teal); box-shadow: 0 0 14px var(--teal); }
+    @keyframes spinSlow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .globe-core {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--mid), var(--deep));
+      border: 1px solid rgba(0,229,195,.25);
+      box-shadow: 0 0 60px rgba(0,137,123,.3), inset 0 0 40px rgba(21,101,192,.2);
+      display: grid;
+      place-items: center;
+      font-size: 3.5rem;
+    }
+    .hero-stat-cards {
+      position: absolute;
+      bottom: -10px;
+      left: -40px;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+    .stat-card {
+      background: rgba(14,61,110,.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,229,195,.15);
+      border-radius: 14px;
+      padding: .8rem 1.2rem;
+      min-width: 170px;
+    }
+    .stat-card-val {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-card-lbl { font-size: .78rem; color: var(--muted); margin-top: .2rem; }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      padding: 1rem 0;
+      background: rgba(14,61,110,.2);
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+      gap: 0;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: 0 2.5rem;
+      font-family: var(--font-head);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .marquee-item .sep {
+      width: 4px; height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: .6;
+    }
+
+    /* ─── SECTIONS GENERAL ─── */
+    section { padding: 7rem 0; }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--deep); position: relative; overflow: hidden; }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,137,123,.12) 0%, transparent 70%);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card-stack {
+      position: relative;
+      height: 420px;
+    }
+    .a-card {
+      position: absolute;
+      background: linear-gradient(135deg, rgba(14,61,110,.8), rgba(10,37,69,.9));
+      border: 1px solid rgba(0,229,195,.12);
+      border-radius: 20px;
+      padding: 1.8rem;
+      backdrop-filter: blur(12px);
+    }
+    .a-card-1 { width: 280px; top: 0; left: 0; }
+    .a-card-2 { width: 260px; top: 90px; right: 0; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+    .a-card-3 { width: 240px; bottom: 0; left: 30px; }
+    .a-card-icon { font-size: 2rem; margin-bottom: .8rem; }
+    .a-card-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .95rem;
+      margin-bottom: .4rem;
+    }
+    .a-card-text { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .a-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: .8rem;
+      font-size: .72rem;
+      color: var(--accent);
+      font-family: var(--font-head);
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+    .about-flags {
+      display: flex;
+      gap: .6rem;
+      margin-top: 1.8rem;
+      align-items: center;
+    }
+    .flag-pill {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .4rem 1rem;
+      border-radius: 100px;
+      font-size: .82rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.04);
+    }
+    .about-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .about-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .about-item-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      border-radius: 10px;
+      background: rgba(0,137,123,.15);
+      border: 1px solid rgba(0,137,123,.25);
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+    }
+    .about-item-text h4 {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: .2rem;
+    }
+    .about-item-text p { font-size: .88rem; color: var(--muted); }
+
+    /* ─── WHY IT MATTERS ─── */
+    #why { position: relative; overflow: hidden; }
+    #why::before {
+      content: '';
+      position: absolute;
+      bottom: -300px; left: -300px;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(21,101,192,.1) 0%, transparent 65%);
+    }
+    .why-header { text-align: center; margin-bottom: 4rem; }
+    .why-header .section-sub { margin-inline: auto; text-align: center; }
+    .why-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .why-card {
+      background: linear-gradient(160deg, rgba(14,61,110,.5), rgba(6,24,48,.7));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s var(--ease), border-color .3s ease, box-shadow .3s ease;
+      cursor: default;
+    }
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--sky));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s var(--ease-out);
+    }
+    .why-card:hover { transform: translateY(-6px); border-color: rgba(0,229,195,.2); box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+    .why-card:hover::before { transform: scaleX(1); }
+    .why-card-num {
+      font-family: var(--font-head);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      color: var(--accent);
+      opacity: .6;
+      margin-bottom: 1rem;
+    }
+    .why-card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .why-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+    .why-card p { font-size: .88rem; color: var(--muted); line-height: 1.7; }
+    .why-card-glow {
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,137,123,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Featured large card */
+    .why-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+    .why-card.featured .why-big-stat {
+      text-align: center;
+    }
+    .why-card.featured .stat-big {
+      font-family: var(--font-head);
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .why-card.featured .stat-unit { font-size: .82rem; color: var(--muted); margin-top: .3rem; }
+
+    /* ─── COLLABORATION ─── */
+    #collab { background: var(--deep); position: relative; overflow: hidden; }
+    .collab-header { margin-bottom: 3.5rem; }
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .collab-card {
+      background: rgba(14,61,110,.4);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 1.6rem 1rem;
+      text-align: center;
+      transition: transform .3s var(--ease), background .3s ease, border-color .3s ease;
+    }
+    .collab-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: rgba(0,137,123,.15);
+      border-color: rgba(0,229,195,.25);
+    }
+    .collab-card-icon { font-size: 2.2rem; margin-bottom: .8rem; }
+    .collab-card h4 {
+      font-family: var(--font-head);
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+    .collab-card p { font-size: .78rem; color: var(--muted); }
+    .collab-cta-box {
+      background: linear-gradient(135deg, rgba(0,137,123,.2), rgba(21,101,192,.2));
+      border: 1px solid rgba(0,229,195,.2);
+      border-radius: 24px;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .collab-cta-box h3 {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      font-weight: 800;
+      max-width: 480px;
+      line-height: 1.3;
+    }
+    .collab-cta-box p { color: var(--muted); font-size: .92rem; margin-top: .5rem; }
+
+    /* ─── FUTURE THINKING ─── */
+    #future { position: relative; overflow: hidden; text-align: center; }
+    .future-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,137,123,.12) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 20%, rgba(21,101,192,.1) 0%, transparent 60%);
+    }
+    .future-content { position: relative; z-index: 2; max-width: 800px; margin-inline: auto; }
+    .future-quote {
+      font-family: var(--font-head);
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin: 2rem 0;
+    }
+    .future-quote .hl { color: var(--accent); }
+    .philosophy-line {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .philosophy-line::before,
+    .philosophy-line::after {
+      content: '';
+      flex: 1;
+      max-width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,229,195,.4));
+    }
+    .philosophy-line::after { background: linear-gradient(90deg, rgba(0,229,195,.4), transparent); }
+    .future-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .pillar {
+      background: rgba(14,61,110,.3);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: transform .3s var(--ease);
+    }
+    .pillar:hover { transform: translateY(-4px); }
+    .pillar-icon { font-size: 2.5rem; margin-bottom: .8rem; }
+    .pillar h4 { font-family: var(--font-head); font-weight: 700; margin-bottom: .5rem; }
+    .pillar p { font-size: .85rem; color: var(--muted); }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--deep); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 1rem; }
+    .contact-info p { color: var(--muted); font-size: .95rem; margin-bottom: 2rem; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .9rem;
+      margin-bottom: 1rem;
+      color: var(--offwhite);
+    }
+    .contact-detail-icon {
+      width: 36px; height: 36px; min-width: 36px;
+      border-radius: 9px;
+      background: rgba(0,137,123,.15);
+      border: 1px solid rgba(0,137,123,.25);
+      display: grid;
+      place-items: center;
+      font-size: .95rem;
+    }
+    .contact-social { display: flex; gap: .7rem; margin-top: 2rem; }
+    .social-btn {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+    .social-btn:hover { background: rgba(0,137,123,.2); border-color: rgba(0,229,195,.3); transform: translateY(-2px); }
+
+    /* Form */
+    .contact-form {
+      background: rgba(14,61,110,.3);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      padding: 2.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: .82rem;
+      font-family: var(--font-head);
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin-bottom: .5rem;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(6,24,48,.6);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 12px;
+      padding: .8rem 1.1rem;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: .92rem;
+      outline: none;
+      transition: border-color .25s, box-shadow .25s;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(0,229,195,.5);
+      box-shadow: 0 0 0 3px rgba(0,229,195,.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(139,174,196,.4); }
+    .form-group select option { background: var(--deep); color: var(--white); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit { width: 100%; justify-content: center; font-size: 1rem; padding: 1rem; }
+    .form-note { text-align: center; font-size: .78rem; color: var(--muted); margin-top: .8rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 3rem 0 2rem;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .footer-brand { display: flex; align-items: center; gap: .7rem; }
+    .footer-brand-name {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1rem;
+    }
+    .footer-brand-sub { font-size: .78rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: .85rem; color: var(--muted); transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy {
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,.05);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+    .footer-built {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .footer-built span { color: var(--accent); }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s var(--ease-out), transform .8s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .why-cards { grid-template-columns: 1fr 1fr; }
+      .why-card.featured { grid-column: span 2; }
+      .collab-grid { grid-template-columns: repeat(3, 1fr); }
+      .future-pillars { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .why-cards { grid-template-columns: 1fr; }
+      .why-card.featured { grid-column: 1; }
+      .why-card.featured { grid-template-columns: 1fr; }
+      .collab-grid { grid-template-columns: 1fr 1fr; }
+      .future-pillars { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-badges { flex-wrap: wrap; gap: .8rem; }
+      .footer-links { display: none; }
+      .collab-cta-box { text-align: center; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(6,24,48,.97);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      padding: 5rem 2rem 3rem;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* Notify banner */
+    .success-msg {
+      display: none;
+      background: rgba(0,137,123,.2);
+      border: 1px solid rgba(0,229,195,.3);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      color: var(--accent);
+      font-family: var(--font-head);
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="circular.html">Circular Economy</a>
-<a href="clean.html">Clean Mongolia</a>
-<a href="energy.html">Future Energy</a>
-<a href="nature.html">🌿 Nature</a>
-<a href="technology.html">💻 Technology</a>
+<!-- ── MOBILE MENU ── -->
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobile()">✕</button>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#why" onclick="closeMobile()">Why It Matters</a>
+  <a href="#collab" onclick="closeMobile()">Collaborate</a>
+  <a href="#future" onclick="closeMobile()">Future</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
 </nav>
 
-<section class="hero">
-<h1>Future Thinking</h1>
-<p>Mongolia as a Global Model</p>
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">♻️</div>
+      MCBI
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why It Matters</a></li>
+      <li><a href="#collab">Collaborate</a></li>
+      <li><a href="#future">Future</a></li>
+      <li><a href="#contact" class="nav-cta">Join the Mission</a></li>
+    </ul>
+    <div class="hamburger" onclick="openMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <!-- Text -->
+      <div>
+        <div class="hero-eyebrow">
+          <div class="dot"></div>
+          <span>Mongolia &amp; Czech Republic · Circular Economy</span>
+        </div>
+        <h1 class="hero-title">
+          Mongolia<br>
+          <span class="highlight">Circular Battery</span><br>
+          Initiative
+        </h1>
+        <p class="hero-subtitle">
+          Building circular systems that protect water, recover battery minerals, and create a clean future for people and planet.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <span>Join the Mission</span>
+            <span>→</span>
+          </a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge"><span class="hero-badge-icon">💧</span> Water Protection</div>
+          <div class="hero-badge"><span class="hero-badge-icon">⚡</span> EV Battery Recycling</div>
+          <div class="hero-badge"><span class="hero-badge-icon">🌱</span> Clean Minerals</div>
+        </div>
+      </div>
+
+      <!-- Visual Globe -->
+      <div class="hero-visual">
+        <div class="globe-wrap">
+          <div class="globe-ring"><div class="globe-dot"></div></div>
+          <div class="globe-ring"><div class="globe-dot"></div></div>
+          <div class="globe-ring"><div class="globe-dot"></div></div>
+          <div class="globe-core">🌏</div>
+        </div>
+        <div class="hero-stat-cards">
+          <div class="stat-card">
+            <div class="stat-card-val">11M+</div>
+            <div class="stat-card-lbl">EV batteries by 2030</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-val">95%</div>
+            <div class="stat-card-lbl">minerals recoverable</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="container">
-
-<h2>Vision</h2>
-
-<div class="grid">
-
-
-
-<div class="card">
-<h3><a href="human-values.html">👥 Human Values</a></h3>
-<p>A future centered around humanity, ethics and community.</p>
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap">
+  <div class="marquee-track" aria-hidden="true">
+    <div class="marquee-item">Battery Recycling <span class="sep"></span></div>
+    <div class="marquee-item">Water Protection <span class="sep"></span></div>
+    <div class="marquee-item">Critical Minerals <span class="sep"></span></div>
+    <div class="marquee-item">Circular Economy <span class="sep"></span></div>
+    <div class="marquee-item">Mongolia <span class="sep"></span></div>
+    <div class="marquee-item">Czech Republic <span class="sep"></span></div>
+    <div class="marquee-item">Clean Future <span class="sep"></span></div>
+    <div class="marquee-item">EV Transition <span class="sep"></span></div>
+    <div class="marquee-item">Soil Protection <span class="sep"></span></div>
+    <div class="marquee-item">Lithium Recovery <span class="sep"></span></div>
+    <!-- repeat for seamless loop -->
+    <div class="marquee-item">Battery Recycling <span class="sep"></span></div>
+    <div class="marquee-item">Water Protection <span class="sep"></span></div>
+    <div class="marquee-item">Critical Minerals <span class="sep"></span></div>
+    <div class="marquee-item">Circular Economy <span class="sep"></span></div>
+    <div class="marquee-item">Mongolia <span class="sep"></span></div>
+    <div class="marquee-item">Czech Republic <span class="sep"></span></div>
+    <div class="marquee-item">Clean Future <span class="sep"></span></div>
+    <div class="marquee-item">EV Transition <span class="sep"></span></div>
+    <div class="marquee-item">Soil Protection <span class="sep"></span></div>
+    <div class="marquee-item">Lithium Recovery <span class="sep"></span></div>
+  </div>
 </div>
 
+<!-- ══════════════════════════════════════
+     ABOUT
+════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
 
+      <!-- Visual Cards -->
+      <div class="about-visual reveal">
+        <div class="about-card-stack">
+          <div class="a-card a-card-1">
+            <div class="a-card-icon">🏔️</div>
+            <div class="a-card-title">Mongolia Pilot</div>
+            <div class="a-card-text">Establishing the first local battery recycling ecosystem aligned with Mongolia's critical mineral landscape.</div>
+            <div class="a-card-tag">🇲🇳 Ulaanbaatar Base</div>
+          </div>
+          <div class="a-card a-card-2">
+            <div class="a-card-icon">🔬</div>
+            <div class="a-card-title">Czech Collaboration</div>
+            <div class="a-card-text">Technical knowledge transfer with European recycling and engineering partners.</div>
+            <div class="a-card-tag">🇨🇿 Prague Partnership</div>
+          </div>
+          <div class="a-card a-card-3">
+            <div class="a-card-icon">♻️</div>
+            <div class="a-card-title">Circular by Design</div>
+            <div class="a-card-text">Every battery recovered becomes a resource. Zero waste. Full value chain.</div>
+            <div class="a-card-tag">✅ End-to-End System</div>
+          </div>
+        </div>
+        <div class="about-flags">
+          <div class="flag-pill">🇲🇳 Mongolia</div>
+          <div class="flag-pill">🇨🇿 Czech Republic</div>
+          <div class="flag-pill">🌍 Global Impact</div>
+        </div>
+      </div>
 
-<div class="card">
-<h3><a href="nature.html">🌿 Nature</a></h3>
-<p>Protecting ecosystems and creating harmony with nature.</p>
-</div>
+      <!-- Text -->
+      <div>
+        <div class="tag reveal">Our Vision</div>
+        <h2 class="section-title reveal reveal-delay-1">
+          A Circular System<br>Built for Mongolia
+        </h2>
+        <p class="section-sub reveal reveal-delay-2">
+          MCBI was founded on a simple but powerful belief: the resources inside used batteries should return to the earth's economy — not poison its water and soil.
+        </p>
 
-<div class="card">
-<h3><a href="technology.html">💻 Technology</a></h3>
-<p>Using digital innovation to support a sustainable future.</p>
-</div>
-  
+        <div class="about-list">
+          <div class="about-item reveal reveal-delay-1">
+            <div class="about-item-icon">🏭</div>
+            <div class="about-item-text">
+              <h4>Local Recycling Infrastructure</h4>
+              <p>We are building Mongolia's first dedicated battery collection and processing system, reducing reliance on unregulated disposal.</p>
+            </div>
+          </div>
+          <div class="about-item reveal reveal-delay-2">
+            <div class="about-item-icon">🤝</div>
+            <div class="about-item-text">
+              <h4>Czech Republic Pilot Partnership</h4>
+              <p>Our collaboration with Czech engineers and researchers brings proven European recycling technologies to a Mongolian context.</p>
+            </div>
+          </div>
+          <div class="about-item reveal reveal-delay-3">
+            <div class="about-item-icon">🔋</div>
+            <div class="about-item-text">
+              <h4>Critical Mineral Recovery</h4>
+              <p>Lithium, cobalt, nickel, and manganese recovered from spent batteries re-enter supply chains — creating local economic value.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-</div>
+    </div>
+  </div>
+</section>
 
-<h2 style="margin-top:60px;">Ideas</h2>
+<!-- ══════════════════════════════════════
+     WHY IT MATTERS
+════════════════════════════════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="why-header">
+      <div class="tag reveal">The Problem We Solve</div>
+      <h2 class="section-title reveal reveal-delay-1">Why It Matters</h2>
+      <p class="section-sub reveal reveal-delay-2">
+        The global energy transition generates millions of spent batteries each year. Without systems to manage them, the cost is paid by communities, rivers, and soil.
+      </p>
+    </div>
 
-<div class="grid">
+    <div class="why-cards">
 
-<div class="card">
-<a href="circular.html" style="color:white;text-decoration:none;">
-<h3>Circular Economy</h3>
-<p>Designing systems where resources are reused and regenerated.</p>
-</a>
-</div>
+      <div class="why-card reveal">
+        <div class="why-card-num">01</div>
+        <div class="why-card-icon">💧</div>
+        <h3>Clean Water at Risk</h3>
+        <p>Improperly disposed batteries leach lead, cadmium, and acid into groundwater, threatening drinking sources and aquatic ecosystems across Mongolia's vast steppe.</p>
+        <div class="why-card-glow"></div>
+      </div>
 
-<div class="card">
-<a href="clean.html" style="color:white;text-decoration:none;">
-<h3>Clean Mongolia</h3>
-<p>Building a model country for environmental responsibility.</p>
-</a>
-</div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-card-num">02</div>
+        <div class="why-card-icon">🌿</div>
+        <h3>Soil Contamination</h3>
+        <p>Heavy metal contamination from battery waste degrades agricultural land and nomadic herding territories — a direct threat to livelihoods and food security.</p>
+        <div class="why-card-glow"></div>
+      </div>
 
-<div class="card">
-<a href="energy.html" style="color:white;text-decoration:none;">
-<h3>Future Energy</h3>
-<p>Innovative energy solutions for a sustainable world.</p>
-</a>
-</div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card-num">03</div>
+        <div class="why-card-icon">⛏️</div>
+        <h3>Critical Mineral Waste</h3>
+        <p>Mongolia holds extraordinary mineral wealth. Battery recycling can recover lithium, cobalt, and nickel — keeping strategic resources in local hands rather than landfills.</p>
+        <div class="why-card-glow"></div>
+      </div>
 
-</div>
+      <div class="why-card featured reveal reveal-delay-1">
+        <div>
+          <div class="why-card-num">04</div>
+          <div class="why-card-icon">⚡</div>
+          <h3>The EV Battery Wave</h3>
+          <p>The global electric vehicle revolution will retire hundreds of millions of batteries in the next decade. Countries without recycling systems will become dumping grounds. Countries with them will build wealth.</p>
+          <p style="margin-top:.6rem">MCBI positions Mongolia on the right side of this transition — as a processing and recovery nation, not a disposal site.</p>
+        </div>
+        <div class="why-big-stat">
+          <div class="stat-big">140M</div>
+          <div class="stat-unit">EVs on roads by 2035<br>(IEA Estimate)</div>
+        </div>
+        <div class="why-card-glow"></div>
+      </div>
 
-</div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-card-num">05</div>
+        <div class="why-card-icon">🔄</div>
+        <h3>Circular Economy Logic</h3>
+        <p>Every kilogram of battery waste properly recycled is a kilogram of new material that doesn't need to be mined, shipped, or refined from scratch. Circularity is efficiency.</p>
+        <div class="why-card-glow"></div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     COLLABORATION
+════════════════════════════════════════ -->
+<section id="collab">
+  <div class="container">
+    <div class="collab-header">
+      <div class="tag reveal">Open Partnership</div>
+      <h2 class="section-title reveal reveal-delay-1">Who We're Looking For</h2>
+      <p class="section-sub reveal reveal-delay-2">
+        MCBI is an open, mission-driven initiative. We grow through collaboration. If you work in any of these fields, there's a role for you in this mission.
+      </p>
+    </div>
+
+    <div class="collab-grid">
+      <div class="collab-card reveal">
+        <div class="collab-card-icon">🔬</div>
+        <h4>Researchers</h4>
+        <p>Materials science, environmental chemistry, hydrogeology</p>
+      </div>
+      <div class="collab-card reveal reveal-delay-1">
+        <div class="collab-card-icon">⚙️</div>
+        <h4>Engineers</h4>
+        <p>Process, chemical, and industrial systems engineers</p>
+      </div>
+      <div class="collab-card reveal reveal-delay-2">
+        <div class="collab-card-icon">📋</div>
+        <h4>Policymakers</h4>
+        <p>Government bodies, regulatory advisors, environmental agencies</p>
+      </div>
+      <div class="collab-card reveal reveal-delay-3">
+        <div class="collab-card-icon">🌐</div>
+        <h4>NGOs</h4>
+        <p>Environmental, community development, and sustainability organizations</p>
+      </div>
+      <div class="collab-card reveal reveal-delay-4">
+        <div class="collab-card-icon">💡</div>
+        <h4>Tech Partners</h4>
+        <p>Battery tech, clean energy, data platforms, and circular economy innovators</p>
+      </div>
+    </div>
+
+    <div class="collab-cta-box reveal">
+      <div>
+        <h3>Ready to build the future of battery circularity?</h3>
+        <p>Whether you're a university lab, an NGO in Ulaanbaatar, or an engineer in Prague — let's connect and co-create solutions.</p>
+      </div>
+      <a href="#contact" class="btn btn-primary">Start Collaboration →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FUTURE THINKING
+════════════════════════════════════════ -->
+<section id="future">
+  <div class="future-bg"></div>
+  <div class="container">
+    <div class="future-content">
+      <div class="tag reveal" style="margin-inline:auto">Future Thinking</div>
+
+      <div class="future-quote reveal reveal-delay-1">
+        "The same world that<br>
+        shares <span class="hl">one internet</span><br>
+        must share <span class="hl">one responsibility</span><br>
+        for the minerals that power it."
+      </div>
+
+      <p class="section-sub reveal reveal-delay-2" style="margin-inline:auto;text-align:center;">
+        Technology connects us. The rare earth minerals inside every battery, every device, every electric vehicle — they come from the ground. That ground is shared. That future must be circular.
+      </p>
+
+      <div class="philosophy-line reveal reveal-delay-2">
+        One World &nbsp;·&nbsp; One Internet &nbsp;·&nbsp; One Shared Responsibility
+      </div>
+
+      <div class="future-pillars reveal reveal-delay-3">
+        <div class="pillar">
+          <div class="pillar-icon">🌍</div>
+          <h4>Humanity First</h4>
+          <p>People and communities at the center of every decision. Clean water and safe land are non-negotiable rights.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">⚡</div>
+          <h4>Technology as Enabler</h4>
+          <p>We use advanced recycling science and data systems to unlock value from what the old economy discarded.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">♻️</div>
+          <h4>Sustainability by Design</h4>
+          <p>Circular thinking isn't an add-on. It's the architecture of every system we build — from policy to processing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div>
+        <div class="tag reveal">Get In Touch</div>
+        <h2 class="section-title reveal reveal-delay-1">Let's Build<br>This Together</h2>
+        <p class="reveal reveal-delay-2">
+          Whether you want to collaborate on research, contribute expertise, fund a pilot, or simply learn more — we want to hear from you.
+        </p>
+
+        <div class="reveal reveal-delay-2">
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📧</div>
+            <span>info@mcbi.org</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🌐</div>
+            <span>www.mcbi.org</span>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <span>Ulaanbaatar, Mongolia · Prague, Czech Republic</span>
+          </div>
+        </div>
+
+        <div class="contact-social reveal reveal-delay-3">
+          <a href="#" class="social-btn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" title="Twitter/X">𝕏</a>
+          <a href="#" class="social-btn" title="ResearchGate">R</a>
+          <a href="#" class="social-btn" title="Email">✉</a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form reveal reveal-delay-2">
+        <h3 style="font-family:var(--font-head);font-weight:800;margin-bottom:1.5rem;font-size:1.3rem;">Collaboration Inquiry</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Ganbaatar" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Dorj" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@organization.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="org">Organization</label>
+          <input type="text" id="org" placeholder="University, NGO, Company..." />
+        </div>
+
+        <div class="form-group">
+          <label for="role">Your Role</label>
+          <select id="role">
+            <option value="" disabled selected>Select your profile</option>
+            <option>Researcher / Scientist</option>
+            <option>Engineer</option>
+            <option>Policymaker / Government</option>
+            <option>NGO / Civil Society</option>
+            <option>Technology Partner</option>
+            <option>Investor / Funder</option>
+            <option>Student</option>
+            <option>Journalist / Media</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us how you'd like to collaborate, or what questions you have..."></textarea>
+        </div>
+
+        <button class="btn btn-primary form-submit" onclick="handleSubmit()">
+          Send Message →
+        </button>
+        <p class="form-note">We respond to all genuine collaboration inquiries within 5 business days.</p>
+        <div class="success-msg" id="successMsg">
+          ✅ Thank you! We'll be in touch soon.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
 <footer>
-Future Thinking Project
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo-icon" style="font-size:.9rem">♻️</div>
+        <div>
+          <div class="footer-brand-name">MCBI</div>
+          <div class="footer-brand-sub">Mongolia Circular Battery Initiative</div>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#why">Why It Matters</a></li>
+        <li><a href="#collab">Collaborate</a></li>
+        <li><a href="#future">Future</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">
+      <span>© 2025 Mongolia Circular Battery Initiative. All rights reserved.</span>
+      <div class="footer-built">
+        Built with <span>♻</span>&nbsp;for a circular future
+      </div>
+    </div>
+  </div>
 </footer>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── Mobile menu ──
+  function openMobile() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Scroll reveal ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── Form submit ──
+  function handleSubmit() {
+    const email = document.getElementById('email').value.trim();
+    const fname = document.getElementById('fname').value.trim();
+    if (!email || !fname) {
+      alert('Please fill in at least your name and email.');
+      return;
+    }
+    document.getElementById('successMsg').style.display = 'block';
+    document.querySelector('.form-submit').disabled = true;
+    document.querySelector('.form-submit').style.opacity = '.5';
+  }
+
+  // ── Smooth scroll for hash links ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
